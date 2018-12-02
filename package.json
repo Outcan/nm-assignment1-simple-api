@@ -1,0 +1,12 @@
+{
+  "name": "assignment1-simple-api",
+  "version": "1.0.0",
+  "description": "Simple restful JSON api, when some posts to the route /hello you should return a welcome message.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Chris Kew",
+  "license": "ISC"
+}
