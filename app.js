@@ -8,20 +8,19 @@ const port = 8082;
 
 // Create server and  monitor our required endpoint
 const httpServer = http.createServer((req, res) => {
+  let response = {};
+  let statusCode = null;
   const parsedUrl = url.parse(req.url, true);
-  console.log(req.headers.host, req.method.toLowerCase());
   if (parsedUrl.pathname === "/hello" && req.method.toLowerCase() === "get") {
-    const response = {
-      text: "Hello, how are you doing?"
-    };
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify(response));
+    statusCode = 200;
+    response = { text: "Hello, how are you doing today?" };
   } else {
-    res.statusCose = 404;
-    res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify({ error: "Sorry, page not found" }));
+    statusCode = 404;
+    response = { error: "Sorry, page not found" };
   }
+  res.statusCode = statusCode;
+  res.setHeader("Content-Type", "application/json");
+  res.end(JSON.stringify(response));
 });
 
 // Start server and listen for connections
