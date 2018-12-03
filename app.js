@@ -1,13 +1,12 @@
 // Dependencies
 const http = require("http");
-
-const hostname = "localhost";
-
-const port = 8082;
-
 const url = require("url");
 
-// Create server and captured our required endpoint
+// Options
+const hostname = "localhost";
+const port = 8082;
+
+// Create server and  monitor our required endpoint
 const httpServer = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
   console.log(req.headers.host, req.method.toLowerCase());
