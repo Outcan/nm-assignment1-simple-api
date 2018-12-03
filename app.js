@@ -18,8 +18,9 @@ const httpServer = http.createServer((req, res) => {
     statusCode = 404;
     response = { error: "Sorry, page not found" };
   }
-  res.statusCode = statusCode;
+
   res.setHeader("Content-Type", "application/json");
+  res.writeHead(statusCode);
   res.end(JSON.stringify(response));
 });
 
